@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="by.kirill.ilichev.bsuir_iis_app">
+     <uses-permission android:name="android.permission.INTERNET" />
+
    <application
         android:label="bsuir_iis_app"
         android:icon="@mipmap/ic_launcher">
