@@ -1,5 +1,5 @@
 import 'package:bsuir_iis_app/domain/model/schedule.dart';
-import 'package:bsuir_iis_app/domain/model/schedule_item.dart';
+import 'package:bsuir_iis_app/domain/model/lesson.dart';
 import 'package:bsuir_iis_app/presentation/schedule_page/schedule_item_card.dart';
 import 'package:bsuir_iis_app/state/schedule_bloc.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +70,7 @@ class ScheduleTab extends StatelessWidget {
     );
   }
 
-  List<ScheduleItem> _getItems(Schedule schedule) {
+  List<Lesson> _getItems(Schedule schedule) {
     switch (type) {
       case ScheduleTabType.today:
         return schedule.todaySchedules;

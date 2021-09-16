@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:bsuir_iis_app/domain/model/schedule_item.dart';
+import 'package:bsuir_iis_app/domain/model/lesson.dart';
 
 class DaySchedule {
   final String weekDay;
-  final List<ScheduleItem> schedule;
+  final List<Lesson> schedule;
 
   DaySchedule({
     required this.weekDay,
@@ -15,7 +15,7 @@ class DaySchedule {
 
   DaySchedule copyWith({
     String? weekDay,
-    List<ScheduleItem>? schedule,
+    List<Lesson>? schedule,
   }) {
     return DaySchedule(
       weekDay: weekDay ?? this.weekDay,
@@ -33,8 +33,8 @@ class DaySchedule {
   factory DaySchedule.fromMap(Map<String, dynamic> map) {
     return DaySchedule(
       weekDay: map['weekDay'],
-      schedule: List<ScheduleItem>.from(
-          map['schedule']?.map((x) => ScheduleItem.fromMap(x))),
+      schedule:
+          List<Lesson>.from(map['schedule']?.map((x) => Lesson.fromMap(x))),
     );
   }
 

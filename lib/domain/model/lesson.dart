@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 import 'employee.dart';
 
-class ScheduleItem {
+class Lesson {
   final List<int> weekNumber;
   final List<String> studentGroup;
   final int numSubgroup;
@@ -19,7 +19,7 @@ class ScheduleItem {
   final List<Employee> employee;
   final bool zaoch;
 
-  ScheduleItem({
+  Lesson({
     required this.weekNumber,
     required this.studentGroup,
     required this.numSubgroup,
@@ -34,7 +34,7 @@ class ScheduleItem {
     required this.zaoch,
   });
 
-  ScheduleItem copyWith({
+  Lesson copyWith({
     List<int>? weekNumber,
     List<String>? studentGroup,
     int? numSubgroup,
@@ -48,7 +48,7 @@ class ScheduleItem {
     List<Employee>? employee,
     bool? zaoch,
   }) {
-    return ScheduleItem(
+    return Lesson(
       weekNumber: weekNumber ?? this.weekNumber,
       studentGroup: studentGroup ?? this.studentGroup,
       numSubgroup: numSubgroup ?? this.numSubgroup,
@@ -81,8 +81,8 @@ class ScheduleItem {
     };
   }
 
-  factory ScheduleItem.fromMap(Map<String, dynamic> map) {
-    return ScheduleItem(
+  factory Lesson.fromMap(Map<String, dynamic> map) {
+    return Lesson(
       weekNumber: List<int>.from(map['weekNumber']),
       studentGroup: List<String>.from(map['studentGroup']),
       numSubgroup: map['numSubgroup'],
@@ -101,8 +101,7 @@ class ScheduleItem {
 
   String toJson() => json.encode(toMap());
 
-  factory ScheduleItem.fromJson(String source) =>
-      ScheduleItem.fromMap(json.decode(source));
+  factory Lesson.fromJson(String source) => Lesson.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -113,7 +112,7 @@ class ScheduleItem {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is ScheduleItem &&
+    return other is Lesson &&
         listEquals(other.weekNumber, weekNumber) &&
         listEquals(other.studentGroup, studentGroup) &&
         other.numSubgroup == numSubgroup &&

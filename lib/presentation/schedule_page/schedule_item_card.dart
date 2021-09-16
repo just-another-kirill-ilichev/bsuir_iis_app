@@ -1,8 +1,8 @@
-import 'package:bsuir_iis_app/domain/model/schedule_item.dart';
+import 'package:bsuir_iis_app/domain/model/lesson.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleItemCard extends StatefulWidget {
-  final ScheduleItem item;
+  final Lesson item;
 
   const ScheduleItemCard({Key? key, required this.item}) : super(key: key);
 

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bsuir_iis_app/domain/model/schedule_item.dart';
+import 'package:bsuir_iis_app/domain/model/lesson.dart';
 
 import 'package:bsuir_iis_app/domain/model/day_schedule.dart';
 import 'package:bsuir_iis_app/domain/model/employee.dart';
@@ -13,9 +13,9 @@ class Schedule {
   final List<DaySchedule> schedules;
   final List<DaySchedule> examSchedules;
   final String todayDate;
-  final List<ScheduleItem> todaySchedules;
+  final List<Lesson> todaySchedules;
   final String tomorrowDate;
-  final List<ScheduleItem> tomorrowSchedules;
+  final List<Lesson> tomorrowSchedules;
   final int currentWeekNumber;
 
   Schedule({
@@ -36,9 +36,9 @@ class Schedule {
     List<DaySchedule>? schedules,
     List<DaySchedule>? examSchedules,
     String? todayDate,
-    List<ScheduleItem>? todaySchedules,
+    List<Lesson>? todaySchedules,
     String? tomorrowDate,
-    List<ScheduleItem>? tomorrowSchedules,
+    List<Lesson>? tomorrowSchedules,
     int? currentWeekNumber,
   }) {
     return Schedule(
@@ -80,11 +80,11 @@ class Schedule {
       examSchedules: List<DaySchedule>.from(
           map['examSchedules']?.map((x) => DaySchedule.fromMap(x))),
       todayDate: map['todayDate'],
-      todaySchedules: List<ScheduleItem>.from(
-          map['todaySchedules']?.map((x) => ScheduleItem.fromMap(x))),
+      todaySchedules: List<Lesson>.from(
+          map['todaySchedules']?.map((x) => Lesson.fromMap(x))),
       tomorrowDate: map['tomorrowDate'],
-      tomorrowSchedules: List<ScheduleItem>.from(
-          map['tomorrowSchedules']?.map((x) => ScheduleItem.fromMap(x))),
+      tomorrowSchedules: List<Lesson>.from(
+          map['tomorrowSchedules']?.map((x) => Lesson.fromMap(x))),
       currentWeekNumber: map['currentWeekNumber'],
     );
   }
