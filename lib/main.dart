@@ -1,3 +1,4 @@
+import 'package:bsuir_iis_app/config/app_routes.dart';
 import 'package:bsuir_iis_app/domain/service/preferences_service.dart';
 import 'package:bsuir_iis_app/domain/service/schedule_service.dart';
 import 'package:bsuir_iis_app/presentation/schedule_page/schedule_page.dart';
@@ -23,10 +24,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         routes: {
-          '/schedule': (_) => const SchedulePage(),
-          '/settings': (_) => SettingsPage(),
+          AppRoutes.schedule: (_) => const SchedulePage(),
+          AppRoutes.settings: (_) => SettingsPage(),
         },
-        initialRoute: '/schedule',
+        initialRoute: AppRoutes.schedule,
       ),
     );
   }

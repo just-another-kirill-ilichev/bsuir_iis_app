@@ -1,3 +1,4 @@
+import 'package:bsuir_iis_app/config/app_routes.dart';
 import 'package:bsuir_iis_app/domain/model/schedule.dart';
 import 'package:bsuir_iis_app/domain/model/lesson.dart';
 import 'package:bsuir_iis_app/presentation/schedule_page/schedule_item_card.dart';
@@ -49,7 +50,8 @@ class ScheduleTab extends StatelessWidget {
           if (!snapshot.hasData) {
             return Center(
               child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                onPressed: () =>
+                    Navigator.pushNamed(context, AppRoutes.settings),
                 child: const Text('Выберете группу'),
               ),
             );

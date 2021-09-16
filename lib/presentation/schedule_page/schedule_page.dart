@@ -1,3 +1,4 @@
+import 'package:bsuir_iis_app/config/app_routes.dart';
 import 'package:bsuir_iis_app/presentation/schedule_page/schedule_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class SchedulePage extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              onPressed: () => Navigator.pushNamed(context, AppRoutes.settings),
               icon: const Icon(Icons.settings),
             )
           ],
