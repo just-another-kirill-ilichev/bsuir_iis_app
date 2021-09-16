@@ -28,47 +28,37 @@ class ScheduleTab extends StatelessWidget {
   Widget build(BuildContext context) {
     var bloc = Provider.of<ScheduleBloc>(context, listen: false);
 
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Colors.red, Colors.blue],
-        ),
-      ),
-      child: StreamBuilder<Schedule?>(
-        stream: bloc.schedule,
-        builder: (_, snapshot) {
-          if (snapshot.hasError) {
-            return const Center(child: Text('Error'));
-          }
+    return StreamBuilder<Schedule?>(
+      stream: bloc.schedule,
+      builder: (_, snapshot) {
+        if (snapshot.hasError) {
+          return const Center(child: Text('Error'));
+        }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
 
-          if (!snapshot.hasData) {
-            return Center(
-              child: ElevatedButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, AppRoutes.settings),
-                child: const Text('Выберете группу'),
-              ),
-            );
-          }
-
-          return RefreshIndicator(
-            onRefresh: bloc.updateSchedule,
-            child: ListWheelScrollView(
-              controller: FixedExtentScrollController(),
-              itemExtent: 300,
-              children: _getItems(snapshot.data!)
-                  .map<Widget>((e) => ScheduleItemCard(item: e))
-                  .toList(),
+        if (!snapshot.hasData) {
+          return Center(
+            child: ElevatedButton(
+              onPressed: () => Navigator.pushNamed(context, AppRoutes.settings),
+              child: const Text('Выберете группу'),
             ),
           );
-        },
-      ),
+        }
+
+        return RefreshIndicator(
+          onRefresh: bloc.updateSchedule,
+          child: ListWheelScrollView(
+            controller: FixedExtentScrollController(),
+            itemExtent: 300,
+            children: _getItems(snapshot.data!)
+                .map<Widget>((e) => ScheduleItemCard(item: e))
+                .toList(),
+          ),
+        );
+      },
     );
   }
 

@@ -32,16 +32,25 @@ class SchedulePage extends StatelessWidget {
             )
           ],
         ),
-        body: TabBarView(children: [
-          ScheduleTab(type: ScheduleTabType.today),
-          ScheduleTab(type: ScheduleTabType.tomorrow),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Понедельник'),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Вторник'),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Среда'),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Четверг'),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Пятница'),
-          ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Суббота'),
-        ]),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.red, Colors.blue],
+            ),
+          ),
+          child: TabBarView(children: [
+            ScheduleTab(type: ScheduleTabType.today),
+            ScheduleTab(type: ScheduleTabType.tomorrow),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Понедельник'),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Вторник'),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Среда'),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Четверг'),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Пятница'),
+            ScheduleTab(type: ScheduleTabType.weekDay, weekDay: 'Суббота'),
+          ]),
+        ),
       ),
     );
   }
